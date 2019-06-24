@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 
 public class Agent implements UserEvent {
 
-    final static private Logger logger = Logger.getLogger(Agent.class);
+    final static private Logger logger = Logger.getLogger(Agent.class); //Logger is not used int class. Logger is constant and should be all uppercase. Should be private.
 
     @Override
     public Connection register(Connection agent, String[] strings, Connection client) {
@@ -24,12 +24,12 @@ public class Agent implements UserEvent {
     }
 
     @Override
-    public void leave(Connection connection) {
+    public void leave(Connection connection) {// Method not implemented. Why had it been declared in interface?
 
     }
 
     @Override
-    public void exit(Connection connection) {
+    public void exit(Connection connection) {// Method not implemented. Why had it been declared in interface?
 
     }
 }

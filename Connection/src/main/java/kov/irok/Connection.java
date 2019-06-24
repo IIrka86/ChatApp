@@ -16,7 +16,7 @@ public class Connection {
     private boolean isAgent;
     private Connection connectionTo;
 
-    final static Logger logger = Logger.getLogger(Connection.class);
+    final static Logger logger = Logger.getLogger(Connection.class);     // Logger is not used int class. Logger is constant and should be all uppercase. Should be private.
 
     public Connection(ConnectionListener listener, String ipAddress, int port) throws IOException {
         this(listener, new Socket(ipAddress,port));
@@ -69,7 +69,7 @@ public class Connection {
         this.connectionTo = connectionTo;
     }
 
-    public synchronized void sendString(String string){
+    public synchronized void sendString(String string){ // rename method. What the string we send?
         try{
             writer.write(string);
             writer.newLine();
@@ -80,7 +80,7 @@ public class Connection {
         }
     }
 
-    public synchronized String getString(){
+    public synchronized String getString(){ // rename method. What the string we send?
         try{
             return reader.readLine();
         }catch (IOException e){

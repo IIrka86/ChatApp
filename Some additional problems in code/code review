@@ -1,0 +1,9 @@
+Additional information to mistakes in code (+ see information in code)
+
+
+1) Message distribution after disconnect is not supported.
+2) If you disconnect the interlocutor is not looking for a new
+3) Class client and agent in server are not entity classes, though it's expected from there names.
+Both classes have almost the same code and should be one class "user" with destinction by isAgent field.
+4) No web client
+5) No tests

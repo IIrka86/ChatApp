@@ -35,7 +35,7 @@ public class Client implements ConnectionListener{
 
     @Override
     public void onDisconnect(Connection connection) {
-        System.out.println(",,");
+        System.out.println(",,"); // Disconnect message is missing.
     }
 
     @Override

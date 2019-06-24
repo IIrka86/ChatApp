@@ -12,7 +12,7 @@ import java.util.LinkedList;
 
 public class Server implements ConnectionListener{
 
-    final static Logger logger = Logger.getLogger(Server.class);
+    final static Logger logger = Logger.getLogger(Server.class); //Logger is not used int class. Logger is constant and should be all uppercase. Should be private.
 
     private final LinkedList<Connection> agents = new LinkedList<>();
     private final LinkedList<Connection> clients = new LinkedList<>();
@@ -49,12 +49,12 @@ public class Server implements ConnectionListener{
 
     @Override
     public synchronized void onReceiveString(Connection connection, String string) {
-        if(string.equals("/leave")){
+        if(string.equals("/leave")){ // Leave command not implemented
 
         }else if(string.equals("/exit")){
             onDisconnect(connection);
             if(connection.isAgent()){
-
+                    // Empty if - agent returning not implemented - More in README
             }
         }else{
             send(connection, string);
@@ -77,7 +77,10 @@ public class Server implements ConnectionListener{
         logger.error("Connection exception: " + e);
     }
 
-    public synchronized boolean register(String request, Connection connection){
+    public synchronized boolean register(String request, Connection connection){ // Must be private - not used outside of the class
+        //Welcome message with description of register message is missing.
+        //Why length of the name is only 1 to 3? There are lot of foreign names with length of words more than 3.
+
         String[] strings = request.split(" ");
         if(strings.length < 3 || strings.length > 5 || !strings[0].equals("/register")){
             connection.sendString("Can not register user. Please try again!");
@@ -105,7 +108,7 @@ public class Server implements ConnectionListener{
         }
     }
 
-    private void send(Connection connection, String string){
+    private void send(Connection connection, String string){ // Method name should be sendMsg
         if (connection.getConnectionTo()==null){
             connection.sendString("Wait your opponent please.");
         }else{
